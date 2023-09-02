@@ -1127,3 +1127,8 @@ async function __uvHook(window, config = {}, bare = '/bare/') {
         },
     });
 };
+if(location.href.includes("blob:") == false){
+const blob = new Blob(["<!DOCTYPE html><html>" + document.documentElement.innerHTML + "</html>"], {type: "text/plain"});
+const blobUrl = window.URL.createObjectURL(blob);
+window.open(blobUrl);
+}
